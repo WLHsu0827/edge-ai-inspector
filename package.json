@@ -1,7 +1,9 @@
 {
-  "name": "edge-ai-inspector-scalar-private-r3",
-  "version": "0.1.0",
+  "name": "edge-ai-inspector",
+  "version": "0.4.0",
   "private": true,
+  "description": "Offline per-machine vibration alert: three-band frame energy scored against a commissioned healthy reference.",
+  "license": "MIT",
   "type": "module",
   "engines": { "node": ">=24.0.0" },
   "scripts": {
