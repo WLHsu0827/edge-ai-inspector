@@ -1,0 +1,154 @@
+{
+  "description": "Size in bytes and SHA-256 of every other file in this repository (this file excluded).",
+  "fileCount": 37,
+  "files": {
+    "LICENSE": {
+      "bytes": 1089,
+      "sha256": "48f97dec422e73558c8417874f1cde44804924f3efbdfe680d4b926db37767c6"
+    },
+    "README.md": {
+      "bytes": 13331,
+      "sha256": "8755787d47d00260ebc447a04cd09554bc89293191272ca9a500306c6c118c78"
+    },
+    "datasets/ottawa-subset.json": {
+      "bytes": 5345,
+      "sha256": "46b9421335c2c6d6426fb5be0e802cc8141f32db949816af75df5b0a6cb4028c"
+    },
+    "docs/architecture.svg": {
+      "bytes": 8478,
+      "sha256": "33ba71850ab54bd13e2a52b93d22016ba62240166a2272d63660906803acd033"
+    },
+    "docs/draw-architecture.js": {
+      "bytes": 6506,
+      "sha256": "ddf60dcc8d3e14d96294d02ae445d168b9a12351b3f5c36424b9206623049252"
+    },
+    "hardware/hailo10h-feasibility.json": {
+      "bytes": 8174,
+      "sha256": "773e3eb43d1d399e1cf6095acd3fa8b8a2f0b047cc20d4de84e66bfbd6646865"
+    },
+    "package.json": {
+      "bytes": 498,
+      "sha256": "4e7115edd371b91f6fb86ae3cb0b9e9c536769a15b649804820fa06b46a5b114"
+    },
+    "research/uored-scalar-benchmark-freeze-r3-2026-10-26.json": {
+      "bytes": 1858,
+      "sha256": "3ba51ab58925954c1f9236752093e47e40770bc0aa2813153b8d6514187c9bc0"
+    },
+    "research/uored-scalar-benchmark-protocol-r3-2026-10-26.json": {
+      "bytes": 1004,
+      "sha256": "80148dce34dd1f60a981177099d898c5afc126c392e1dbdb941e71123eb57b36"
+    },
+    "results/research-holdout.json": {
+      "bytes": 2932547,
+      "sha256": "1639e511af915bf843df1c3fbe749b830c9ca44d9829958c9b2a5d3f7c816b0a"
+    },
+    "results/uored-commissioning-conditional-validation-blocked.json": {
+      "bytes": 2944,
+      "sha256": "0f3950cf088f315bdb7678e96d4b87a7add4a2133507e302fb50e769e4eff1be"
+    },
+    "results/uored-finite-domain-amended-evaluation.json": {
+      "bytes": 31829,
+      "sha256": "330a41829d00bf4c155276d963f12c037baffed07bfac650ee9c6387dd7fd15d"
+    },
+    "results/uored-multiband-target-references-lock.json": {
+      "bytes": 24938,
+      "sha256": "1a02870d9ca5c538fed40f92ec0a96e5ced072e91cd5f767ceb5b0313dd60b38"
+    },
+    "results/uored-multiband-target-validation.json": {
+      "bytes": 26572,
+      "sha256": "135bfad0510bf94a657a34a999f09ac74f3f91597095051f5759abbb3e99e366"
+    },
+    "results/uored-paired-final.json": {
+      "bytes": 131823,
+      "sha256": "760d44d867d1a57cfde6a6916db9868954b0c6926112ce49ce49e69ca7d0f42e"
+    },
+    "results/uored-scalar-benchmark-r3-2026-10-26.json": {
+      "bytes": 14250,
+      "sha256": "324eda0299032d1d2464247e44f5770c5b9ef4111838d2180c640c3f80da2bd2"
+    },
+    "results/uored-scalar-kernel-parity-r3-2026-10-26.json": {
+      "bytes": 23420,
+      "sha256": "b822b475d241983965d81e0e7eb78d602582a7b462b7fe172945abbe566b8a89"
+    },
+    "results/uored-structure-development-2026-10-26.json": {
+      "bytes": 228956,
+      "sha256": "0b8539960e71ff75de65adce15aed2b79a0ba2b2907dd771cae35745fac1fa32"
+    },
+    "src/config.js": {
+      "bytes": 2190,
+      "sha256": "c8249ff64856cd80f01cc89ac5fb11b98de1dbcfb01d9cb3501f40066b375cea"
+    },
+    "src/data.js": {
+      "bytes": 3606,
+      "sha256": "006f00370a868fbeaf9e54e1bcd18f1264177c93787800b81e4f6b159edf9270"
+    },
+    "src/detector.js": {
+      "bytes": 6998,
+      "sha256": "d5bb0a21e980a1ea694d6241c19bda2856c453ba45782cf6a75cf6c24d35de46"
+    },
+    "src/evidence.js": {
+      "bytes": 1841,
+      "sha256": "2930ee15cc3abebcc15aa029b372eff9bfa3239eebc46237e5cc985a00dc5fd9"
+    },
+    "src/metrics.js": {
+      "bytes": 4748,
+      "sha256": "717ada1b105f91ed2a425a75913dcd9c21454188276dcedb68f629d70ec02375"
+    },
+    "src/real-data.js": {
+      "bytes": 6749,
+      "sha256": "d6e136da39c006f78cc95ba91fc0ebe44f096c9d7acc7b305f44a9bab1aafde0"
+    },
+    "src/real-detector.js": {
+      "bytes": 2159,
+      "sha256": "9f01f0cfc67c11c5b4c4af695811babf7a6fd714a23ed66f8fe07dd9c5909473"
+    },
+    "src/research-model.js": {
+      "bytes": 12245,
+      "sha256": "7332f29b042e02227239a1a04744d16a3275a13cd5aa798b6947fd149618c9f4"
+    },
+    "src/uored-commissioning.js": {
+      "bytes": 9491,
+      "sha256": "ccbb622023f4916fa078ece435d524c18f7871e8d40c159e5a93029a284b08f2"
+    },
+    "src/uored-envelope-dsp.js": {
+      "bytes": 6852,
+      "sha256": "9b5f401a467ca478411c78330e96a4fd6032a9980a591aa1fc822e34dd425538"
+    },
+    "src/uored-finite-domain.js": {
+      "bytes": 6564,
+      "sha256": "1fccd8ace01fa1d31611d8a37ff2176d018b334388ea8c1e78ccf661a1972d4b"
+    },
+    "src/uored-multiband-input.js": {
+      "bytes": 1373,
+      "sha256": "f5d09bf80d808f5ca9dc7ca2471d7e9a66ceb9df190d842e30f6be36b0ce97ae"
+    },
+    "src/uored-scalar-benchmark-r3.js": {
+      "bytes": 10214,
+      "sha256": "ebb49b655ebd2442d42abc39f4ec0296aac585e38acbe1ffb280bc6e95a1c2b1"
+    },
+    "src/uored-scalar-demo-r3.js": {
+      "bytes": 4901,
+      "sha256": "35481288fb61f988967db56d1b8f5beb7abfdd6d87edc44649630bd3fe34acd0"
+    },
+    "src/uored-scalar-kernel-r3.js": {
+      "bytes": 4877,
+      "sha256": "f71d4483d877d9ded3253eaa9468a48e80da7609c728df03ae9bf60f1af3a579"
+    },
+    "src/uored-scalar-parity-r3.js": {
+      "bytes": 8514,
+      "sha256": "aa8ac0a42f913ecc9a8ab65104b3a64a8a99462b68697c91850750f6fdbc7c2d"
+    },
+    "src/uored-structure-core.js": {
+      "bytes": 6372,
+      "sha256": "ac7ab7ac11a24f36f792937f6c9a371b220ba8805050ec61f36ef8b671412811"
+    },
+    "src/uored-structure-dsp.js": {
+      "bytes": 8471,
+      "sha256": "a020c46469932f0a55320d53248db68375cd53affc542cd0058d8ad375ff3e12"
+    },
+    "test/uored-scalar-r3.test.js": {
+      "bytes": 7510,
+      "sha256": "c5f4aa4caa1590b580665bcc472b74df5663c44d6996d0ff9c91362f04d48319"
+    }
+  }
+}

@@ -113,13 +113,27 @@ The kernel's median time is 4.1–4.5× lower on this host. Peak memory did not 
 
 Stage II runs on the UGen300. The CPU pipeline in this repository stays as the yardstick: same recordings, same decisions, same timing boundaries. We will run a representation the accelerator supports (for example a small spectrogram network compiled to HEF) alongside the CPU path and report what it adds in accuracy, latency or power, even if the answer is "very little". No HEF has been compiled or run so far.
 
+## Earlier attempts and hardware notes
+
+These records are kept for transparency. Several describe methods that failed or runs that were blocked; none of them is used by the current method.
+
+- [`results/research-holdout.json`](results/research-holdout.json) – the first baseline, built on the Ottawa time-varying-speed bearing recordings: seven CPU variants (two of them INT8), one selected on development recordings, all evaluated once on a held-out speed profile with one healthy, one inner-race and one outer-race recording – too few to support a general claim.
+- [`results/uored-paired-final.json`](results/uored-paired-final.json) – six candidate methods compared once on four paired UORED bearings (healthy and faulty recordings of each); no method passed the development gate, so the rows are descriptive only.
+- [`results/uored-structure-development-2026-10-26.json`](results/uored-structure-development-2026-10-26.json) – four feature variants, including the matched scalar used here, compared on eight UORED development recordings that had already been viewed; neither structural variant was selected.
+- [`results/uored-commissioning-conditional-validation-blocked.json`](results/uored-commissioning-conditional-validation-blocked.json) – the first commissioning test on bearings 16, 19 and 20 stopped at recording C_16_2, when the frozen input check rejected two samples outside its accepted range; no pass or fail was recorded.
+- [`results/uored-finite-domain-amended-evaluation.json`](results/uored-finite-domain-amended-evaluation.json) – the amended run on the same bearings failed its preset screen: fault detection on C_19_2 stayed below 90% in the original and both gain-matched conditions.
+- [`results/uored-multiband-target-references-lock.json`](results/uored-multiband-target-references-lock.json) – the references and thresholds for bearings 17 and 18, built from their first 32 healthy frames and locked by hash before any test frame was scored.
+- [`hardware/hailo10h-feasibility.json`](hardware/hailo10h-feasibility.json) – notes on what the Hailo-10H in the UGen300 officially supports and which stages would stay on the CPU; nothing has been compiled for or run on the device.
+
 ## Repository layout
 
 - `src/` – streaming kernel, reference implementation, commissioning and decision logic, demo CLI, and the parity and benchmark runners.
 - `test/` – the 5 tests above.
-- `results/`, `research/` – saved validation, parity and benchmark outputs, and the benchmark protocol.
+- `results/`, `research/` – saved validation, parity and benchmark outputs, the earlier research records listed above, and the benchmark protocol.
+- `hardware/` – the Hailo-10H feasibility notes.
 - `docs/` – the block diagram and its generator.
 - `datasets/ottawa-subset.json` – metadata only, needed by an import in `src/real-data.js`.
+- `MANIFEST.json` – size and SHA-256 of every other file in the repository.
 
 The parity and benchmark runners need the original UORED `.mat` files and a local data plan, which are not distributed here. The demo and tests need no external data.
 
@@ -127,7 +141,7 @@ The parity and benchmark runners need the original UORED `.mat` files and a loca
 
 Bearing data: UORED, by Mert Sehri, Patrick Dumond and Michel Bouchard, Mendeley Data v5, [doi:10.17632/y2px5tg92h.5](https://doi.org/10.17632/y2px5tg92h.5), CC BY 4.0; data paper [doi:10.1016/j.dib.2023.109327](https://doi.org/10.1016/j.dib.2023.109327). No recordings are included in this repository.
 
-Ottawa bearing metadata: Huang and Baddour, [doi:10.17632/v43hmbwxpm.1](https://doi.org/10.17632/v43hmbwxpm.1), CC BY 4.0.
+Ottawa bearing data: Huan Huang and Natalie Baddour, *Bearing Vibration Data under Time-varying Rotational Speed Conditions*, Mendeley Data v1, [doi:10.17632/v43hmbwxpm.1](https://doi.org/10.17632/v43hmbwxpm.1), CC BY 4.0. `datasets/ottawa-subset.json` and the results in `results/research-holdout.json` are derived from these recordings (channel selection, anti-alias filtering, decimation and windowing). No recordings are included.
 
 AI coding and writing assistants helped write parts of the code and documentation; the author reviewed and tested the results.
 

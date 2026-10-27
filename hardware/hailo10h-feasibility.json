@@ -1,0 +1,95 @@
+{
+  "checkedAt": "2026-09-26",
+  "decision": "Keep classical CPU baselines. User approved an incremental spectrogram -> CNN intermediate representation -> CPU normal-reference score path. CPU feasibility is measured; Hailo conversion and UGen300 execution remain unverified.",
+  "currentClassicalBackend": "Goertzel, scaling, RMS and nearest-neighbor loops are JavaScript CPU code, not a Hailo executable graph. No claim that this code compiles or runs on NPU.",
+  "candidateFamily": {
+    "name": "MobileNet V2 1.0, 224x224x3",
+    "officialHailo10hSupport": true,
+    "officialOutput": "1001 ImageNet class outputs, not an embedding",
+    "cpuExperiment": "Google TFJS classification v3, specifically the 1280-D AvgPool intermediate node. This is a different artifact from the Hailo catalog's TFLite/HEF.",
+    "exactCheckpointEquivalenceVerified": false,
+    "stockHefUsableAsOurEmbedding": false
+  },
+  "executionBoundary": {
+    "cpu": ["sensor acquisition", "anti-alias filtering", "spectrogram", "distance to normal embedding bank", "threshold", "budget selection", "UI/logging"],
+    "proposedNpu": ["only the supported, correctly compiled CNN backbone/embedding graph"],
+    "notUsefulHere": ["LLM summary generation", "Whisper transcription of bearing vibration", "claiming Hailo-8 or Hailo-8L binaries work on Hailo-10H"]
+  },
+  "sources": [
+    {
+      "id": "asus-windows",
+      "url": "https://github.com/Asus-UGen-Series/UGen300-Demo-Package-Windows-User-Guide/blob/062b16f3492590b0a7cd8380bf3845e5d8b4f103/README.md",
+      "fact": "Official June 2026 guide requires Windows 11 x64, demo Python 3.10, HailoRT 5.3.2; lists USB and PCIe drivers, USB firmware process and scan/identify checks. It lists conventional YOLO alongside generative demos.",
+      "limit": "A user guide is not evidence that this computer has the SDK/device installed or that our custom graph runs."
+    },
+    {
+      "id": "asus-linux",
+      "url": "https://github.com/Asus-UGen-Series/Ugen-Utility/blob/23f099df80bea045ca4efca81386f6196db609e0/README.md",
+      "fact": "April 2026 UGen Utility guide is Linux-only, driver 5.3.0, with distinct amd64/arm64 USB and PCIe packages.",
+      "limit": "Separate release line from the Windows demo; not an interchangeable compiler/runtime guarantee."
+    },
+    {
+      "id": "hailort",
+      "url": "https://github.com/hailo-ai/hailort/blob/f51959034a8a49b7ee53cd0034a161faa30352ba/README.md",
+      "fact": "Master supports Hailo-10/15 families; Hailo-8/8R/8L use the hailo8 branch. Host library supports Linux and Windows on x86/ARM; C/C++ and Python APIs.",
+      "limit": "Host library availability alone does not verify UGen USB firmware/HEF compatibility."
+    },
+    {
+      "id": "hailo-model",
+      "url": "https://github.com/hailo-ai/hailo_model_zoo/blob/49039700f5c1aff9063e028c3bc55ef174371b36/hailo_model_zoo/cfg/networks/mobilenet_v2_1.0.yaml",
+      "fact": "Explicit supported_hw_arch includes hailo10h. Input 224x224x3, output 1001, TFLite source, ImageNet, 3.49M parameters.",
+      "limit": "Stock classification support does not certify a modified intermediate-output spectrogram network."
+    },
+    {
+      "id": "hailo-catalog",
+      "url": "https://github.com/hailo-ai/hailo_model_zoo/blob/49039700f5c1aff9063e028c3bc55ef174371b36/docs/public_models/HAILO10H/HAILO10H_classification.rst",
+      "fact": "HAILO10H-specific MobileNet V2 HEF is listed under DFC v5.4.0, with PCIe Gen3 x4 measurement conditions.",
+      "limit": "Vendor FPS/accuracy numbers are not reproduced by us and are not USB or anomaly-detection measurements."
+    },
+    {
+      "id": "hailo-build",
+      "url": "https://github.com/hailo-ai/hailo_model_zoo/blob/49039700f5c1aff9063e028c3bc55ef174371b36/docs/GETTING_STARTED.rst",
+      "fact": "Guide specifies Ubuntu 22.04/24.04 (WSL2), Python 3.10/3.11/3.12, DFC and HailoRT v5.3.0, PCIe-only MZ evaluation, Nvidia/CUDA dependencies. Custom networks require DFC directly.",
+      "limit": "At this same revision README/catalog say v5.4.0 while this guide says v5.3.0. Confirm an exact compatible release with vendor; no SDK installed or GPU work authorized here."
+    },
+    {
+      "id": "asus-model-rights",
+      "url": "https://github.com/Asus-UGen-Series/ugen-pretrained-model-reference/blob/c3520b44078f6bc1f71bacff9540a3374f896c32/README.md",
+      "fact": "Reference hub, not a model distributor; model licensing is model-specific and must be checked at the original source.",
+      "limit": "A Model Zoo repository license does not automatically license every weight or dataset."
+    }
+  ],
+  "gates": [
+    "Confirm actual competition device SKU (USB versus M.2), delivered firmware, supported host OS, transport and matched HailoRT/DFC versions.",
+    "Obtain authorized DFC/SDK access and a supported build environment. No large toolchain, global installation, GPU or hardware purchase approved.",
+    "Verify source-weight license/checkpoint and input normalization. Parse intended AvgPool output or an adapted compact CNN using supported operators.",
+    "Quantize using ONLY fit-normal inputs; compare CPU, quantized emulator and compiled output shape/value/quality without tuning on final test.",
+    "Compile explicitly for HAILO10H; produce and hash a real HEF. Keep stock 1001-way classification HEF distinct from embedding HEF.",
+    "Execute on actual UGen300 via the supported transport. Record CPU preprocessing, transfer, NPU inference, CPU decision, device/host memory and energy separately.",
+    "Continue only if benefit beats RMS/CPU on a new locked evaluation. Current CNN pilot is not evidence of improvement over RMS."
+  ],
+  "states": {
+    "officialDocumentationReviewed": true,
+    "cpuIntermediateEmbeddingExecuted": true,
+    "userApprovedCnnPath": true,
+    "modelFineTuned": false,
+    "customConverterTested": false,
+    "hefGenerated": false,
+    "sdkInstalled": false,
+    "ugen300Measured": false
+  },
+  "coordinatingChatDocumentationRecheck20261025": {
+    "scope": "Relayed offline into project metadata; coordinating chat reviewed the same upstream official source revision online on a compliant device. This session did not run hardware or fetch documentation.",
+    "modelZooMasterSha": "49039700f5c1aff9063e028c3bc55ef174371b36",
+    "versionMismatch": "Model Zoo README/catalog list DFC/HailoRT 5.4.0; GETTING_STARTED at same revision still says 5.3.0. Its evaluation is PCIe-only; custom network needs DFC directly. ASUS Windows UGen300 guide remains HailoRT 5.3.2, USB firmware, Windows 11 x64, Python 3.10.",
+    "modelOutput": "Official MobileNet V2 network yaml terminal is MobilenetV2/Predictions/Softmax, 1001 classification outputs, not the CPU pilot's AvgPool 1280 embedding.",
+    "verdict": "No verified generic hailomz compile command for the custom USB embedding path, no tested HEF/driver/runtime/device. Documentation recheck is not hardware evidence."
+  },
+  "sensorQualityExperiment20260928": {
+    "measuredCpuOnly": "The separate out-of-band gate added an FFT to CPU scoring; on A3 development it rejected just 1/78 white-noise healthy windows and also 61/78 unperturbed inner-race windows. This is not useful robustness or an NPU graph.",
+    "detail": "results/sensor-quality-development.json",
+    "npuValueGate": "An actual matching embedding HEF and UGen300 are prerequisites. Measure preprocessing, host-to-device transfer, neural inference, CPU reference scoring, host RSS/device memory and energy separately against RMS and the CPU CNN, then evaluate on previously untouched physically distinct bearings. No stock 1001-class output substitution.",
+    "supportBoundary": "https://github.com/hailo-ai/hailo_model_zoo/blob/master/docs/GETTING_STARTED.rst documents HAILO10H as the default compile target but its Model Zoo flow is PCIe-only and custom networks require DFC directly; ASUS device transport and exact SDK version still need confirmation.",
+    "status": "No SDK, GPU, HEF, UGen300 or hardware energy measurement. Hardware acceleration benefit is unmeasured and current CPU evidence is negative."
+  }
+}

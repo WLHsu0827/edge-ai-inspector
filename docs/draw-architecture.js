@@ -21,7 +21,9 @@ function box({ x, y, w, h, title, lines, fill, stroke }) {
   }
   if (ty - 19 > y + h - 8) throw new Error(`Text too tall for box: ${title}`);
 }
+const segments = [], headings = [];
 function arrow(points, label, labelAt) {
+  points.slice(1).forEach((p, i) => segments.push([points[i], p]));
   const d = points.map(([px, py], i) => `${i ? 'L' : 'M'}${px} ${py}`).join(' ');
   parts.push(`<path d="${d}" fill="none" stroke="${LINE}" stroke-width="1.8" marker-end="url(#head)"/>`);
   if (label) {
@@ -30,6 +32,7 @@ function arrow(points, label, labelAt) {
   }
 }
 function heading(x, y, text) {
+  headings.push({ text, x0: x - 4, x1: x + textWidth(text, 14, true) + 0.5 * text.length + 4, y0: y - 16, y1: y + 5 });
   parts.push(`<text x="${x}" y="${y}" font-size="14" font-weight="600" fill="${MUTED}" letter-spacing="0.5">${esc(text)}</text>`);
 }
 
@@ -46,7 +49,7 @@ box({ x: col(0), y: top, w: cw, h: th, title: 'Input', ...IO,
 box({ x: col(1), y: top, w: cw, h: th, title: 'Band-pass ×3', ...RUN,
   lines: ['2–5, 5–10 and', '10–15 kHz;', '4th-order', 'Butterworth'] });
 box({ x: col(2), y: top, w: cw, h: th, title: 'Frame energy', ...RUN,
-  lines: ['Σ y² over 5,376', 'samples per band,', '÷ filter noise gain', 'S = P₁ + P₂ + P₃'] });
+  lines: ['mean y² over 5,376', 'samples per band,', '÷ filter noise gain', 'S = P₁ + P₂ + P₃'] });
 box({ x: col(3), y: top, w: cw, h: th, title: 'Score', ...RUN,
   lines: ['x = log(S / scale)', 'd = min |x − bᵢ|', 'over the 8 healthy', 'references bᵢ'] });
 box({ x: col(4), y: top, w: 200, h: th, title: 'Output decision', ...IO,
@@ -57,9 +60,9 @@ signals.forEach((s, i) => arrow([[col(i) + cw, mid], [col(i + 1) - 2, mid]], s, 
 
 // Commissioning path.
 const low = 330, lh = 150;
-heading(x0, low - 18, 'COMMISSIONING: once per installation, about 4.1 s of healthy vibration');
+heading(x0, low - 18, 'COMMISSIONING: once per installation');
 box({ x: col(0), y: low, w: cw + 50, h: lh, title: 'Healthy recording', ...SETUP,
-  lines: ['32 frames, confirmed', 'healthy by a technician;', 'same filters → S₀ … S₃₁'] });
+  lines: ['about 4.1 s (32 frames),', 'confirmed healthy by a', 'technician; same filters', '→ S₀ … S₃₁'] });
 box({ x: col(1) + 90, y: low, w: 230, h: lh, title: 'Fit: frames 0–15', ...SETUP,
   lines: ['scale = median of S₀ … S₁₅', 'bᵢ = log(Sₖ / scale) at the', '8 even frames k = 0 … 14'] });
 box({ x: col(3) - 20, y: low, w: 190, h: lh, title: 'Calibrate: 16–31', ...SETUP,
@@ -73,6 +76,15 @@ arrow([[col(3) + 170, lmid], [col(4) + 8, lmid]], 'p95', [col(3) + 190, lmid - 1
 const fitX = col(1) + 90 + 115, bend = top + th + 55;
 arrow([[fitX, low], [fitX, bend], [col(3) + 50, bend], [col(3) + 50, top + th + 2]], 'scale, bᵢ', [fitX + 12, bend - 8, 'start']);
 arrow([[col(4) + 105, low], [col(4) + 105, top + th + 2]], 'T, config', [col(4) + 113, low - 40, 'start']);
+
+// No connector may cross a section heading.
+for (const h of headings) {
+  for (const [[ax, ay], [bx, by]] of segments) {
+    const crossX = Math.max(ax, bx) >= h.x0 && Math.min(ax, bx) <= h.x1;
+    const crossY = Math.max(ay, by) >= h.y0 && Math.min(ay, by) <= h.y1;
+    if (crossX && crossY) throw new Error(`Connector crosses heading: ${h.text}`);
+  }
+}
 
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="${FONT}" role="img" aria-labelledby="title desc">
 <title id="title">Edge AI Inspector signal path</title>

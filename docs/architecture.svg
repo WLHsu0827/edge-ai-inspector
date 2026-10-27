@@ -17,7 +17,7 @@
 <text x="301" y="157" font-size="13" fill="#4f6070" text-anchor="middle">Butterworth</text>
 <rect x="420" y="50" width="162" height="170" rx="10" fill="#eef5fb" stroke="#6f97b8" stroke-width="1.5"/>
 <text x="501" y="76" font-size="15" font-weight="600" fill="#1d2b36" text-anchor="middle">Frame energy</text>
-<text x="501" y="100" font-size="13" fill="#4f6070" text-anchor="middle">Σ y² over 5,376</text>
+<text x="501" y="100" font-size="13" fill="#4f6070" text-anchor="middle">mean y² over 5,376</text>
 <text x="501" y="119" font-size="13" fill="#4f6070" text-anchor="middle">samples per band,</text>
 <text x="501" y="138" font-size="13" fill="#4f6070" text-anchor="middle">÷ filter noise gain</text>
 <text x="501" y="157" font-size="13" fill="#4f6070" text-anchor="middle">S = P₁ + P₂ + P₃</text>
@@ -42,12 +42,13 @@
 <text x="601" y="102" font-size="13" font-style="italic" fill="#1d2b36" text-anchor="middle">S</text>
 <path d="M782 112 L818 112" fill="none" stroke="#3d5566" stroke-width="1.8" marker-end="url(#head)"/>
 <text x="801" y="102" font-size="13" font-style="italic" fill="#1d2b36" text-anchor="middle">d</text>
-<text x="20" y="312" font-size="14" font-weight="600" fill="#4f6070" letter-spacing="0.5">COMMISSIONING: once per installation, about 4.1 s of healthy vibration</text>
+<text x="20" y="312" font-size="14" font-weight="600" fill="#4f6070" letter-spacing="0.5">COMMISSIONING: once per installation</text>
 <rect x="20" y="330" width="212" height="150" rx="10" fill="#eef7ee" stroke="#6fa36f" stroke-width="1.5"/>
 <text x="126" y="356" font-size="15" font-weight="600" fill="#1d2b36" text-anchor="middle">Healthy recording</text>
-<text x="126" y="380" font-size="13" fill="#4f6070" text-anchor="middle">32 frames, confirmed</text>
-<text x="126" y="399" font-size="13" fill="#4f6070" text-anchor="middle">healthy by a technician;</text>
-<text x="126" y="418" font-size="13" fill="#4f6070" text-anchor="middle">same filters → S₀ … S₃₁</text>
+<text x="126" y="380" font-size="13" fill="#4f6070" text-anchor="middle">about 4.1 s (32 frames),</text>
+<text x="126" y="399" font-size="13" fill="#4f6070" text-anchor="middle">confirmed healthy by a</text>
+<text x="126" y="418" font-size="13" fill="#4f6070" text-anchor="middle">technician; same filters</text>
+<text x="126" y="437" font-size="13" fill="#4f6070" text-anchor="middle">→ S₀ … S₃₁</text>
 <rect x="310" y="330" width="230" height="150" rx="10" fill="#eef7ee" stroke="#6fa36f" stroke-width="1.5"/>
 <text x="425" y="356" font-size="15" font-weight="600" fill="#1d2b36" text-anchor="middle">Fit: frames 0–15</text>
 <text x="425" y="380" font-size="13" fill="#4f6070" text-anchor="middle">scale = median of S₀ … S₁₅</text>

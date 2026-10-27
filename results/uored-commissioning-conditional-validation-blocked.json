@@ -1,0 +1,34 @@
+{
+  "id": "uored-commissioned-cage-conditional-validation-v1",
+  "status": "BLOCKED-after-unsaved-H16-healthy-scoring-before-C16-fault-scoring",
+  "recordedAtUtc": "2026-10-26T03:51:16.083Z",
+  "attemptedCommand": "node --single-threaded --v8-pool-size=1 src\\uored-commissioning-validation.js evaluate-targets",
+  "exitCode": 1,
+  "preAccessFreezeSha256": "f9399df0054d27c5b67380486074ff4b1c4750a7cc4d493fbd7bf5921e24b725",
+  "referenceLockSha256": "ac1a9ef4b1648b026b71a27da927d5433ae8a2cb073c180ac38754acfa9ce56e",
+  "accessApprovalSha256": "1492ce398fb57c24456c5145e599eeabbf83f59e1630c7302e50011bac376c1e",
+  "sourceChecks": "The six publisher SHA/byte identities, both download receipts, exact six-file inventory, 15 pre-access source hashes, reference lock and coordinator approval were reverified before the evaluation attempt.",
+  "failure": {
+    "recording": "C_16_2.mat",
+    "publisherSha256": "27f8fa3de03b641fab4ae1b5013db70ecba325e0655151bb56386d9c13727a26",
+    "stage": "C16 42kHz MATLAB acceleration first-column decoder before C16 bandpass/scoring; H16 was processed first",
+    "exception": "Nonfinite/out-of-range accelerometer value.",
+    "frozenLimit": "absolute raw sample <=1000; same check exists in both MAT importer and bandRms preprocessor",
+    "independentReadOnlyQa": {
+      "matrixVariable": "C_16_2",
+      "rows": 420000,
+      "columns": 5,
+      "realDoubleWidthBytes": 8,
+      "firstColumnMin": -721.55175,
+      "firstColumnMax": 1056.031448,
+      "firstColumnNonfiniteCount": 0,
+      "firstColumnOverLimitCount": 2,
+      "firstOverLimitZeroBasedSourceIndex": 42119,
+      "firstOverLimitValue": 1052.872491
+    }
+  },
+  "attemptBoundary": "The runner processed H_16_0.mat healthy-tail windows under all four valid conditions and the unsupported gain stress in memory before advancing to C_16_2.mat. These H16 scores were neither inspected nor saved; the C16 decoder then rejected the file before C16 scoring. No other targets were scored. This is an attempted, partially consumed evaluation, not an untouched validation set.",
+  "untouched": "No result JSON, readable report or complete per-condition confusion was produced. Factor, thresholds, references, selected policy, sources, protocol, previous frozen studies and submission artifacts unchanged. No retry or range-limit adjustment.",
+  "interpretation": "The publisher-hashed C16 first column contains two finite values outside the existing conservative software range; this does not prove a parser bug or sensor validity. The frozen pipeline rejects the file. No conditional-screen PASS/FAIL can be asserted.",
+  "decisionRequired": "Coordinator and owner must decide whether a separately versioned, explicitly retrospective range-handling study is warranted. The same already accessed target cohort cannot honestly be relabeled a pristine independent prospective validation after a range-rule change."
+}
