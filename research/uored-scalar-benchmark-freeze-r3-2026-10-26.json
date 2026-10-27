@@ -1,0 +1,26 @@
+{
+  "id": "uored-scalar-host-benchmark-r3-v1",
+  "frozenAtUtc": "2026-10-26T09:57:38.158Z",
+  "protocolSha256": "80148dce34dd1f60a981177099d898c5afc126c392e1dbdb941e71123eb57b36",
+  "paritySha256": "b822b475d241983965d81e0e7eb78d602582a7b462b7fe172945abbe566b8a89",
+  "sourceHashes": {
+    "src/uored-scalar-benchmark-r3.js": "ebb49b655ebd2442d42abc39f4ec0296aac585e38acbe1ffb280bc6e95a1c2b1",
+    "src/uored-scalar-kernel-r3.js": "f71d4483d877d9ded3253eaa9468a48e80da7609c728df03ae9bf60f1af3a579",
+    "src/uored-structure-dsp.js": "a020c46469932f0a55320d53248db68375cd53affc542cd0058d8ad375ff3e12",
+    "src/uored-structure-core.js": "ac7ab7ac11a24f36f792937f6c9a371b220ba8805050ec61f36ef8b671412811",
+    "src/uored-finite-domain.js": "1fccd8ace01fa1d31611d8a37ff2176d018b334388ea8c1e78ccf661a1972d4b",
+    "src/uored-commissioning.js": "ccbb622023f4916fa078ece435d524c18f7871e8d40c159e5a93029a284b08f2",
+    "src/uored-envelope-dsp.js": "9b5f401a467ca478411c78330e96a4fd6032a9980a591aa1fc822e34dd425538",
+    "src/data.js": "006f00370a868fbeaf9e54e1bcd18f1264177c93787800b81e4f6b159edf9270",
+    "src/detector.js": "d5bb0a21e980a1ea694d6241c19bda2856c453ba45782cf6a75cf6c24d35de46"
+  },
+  "inputHashes": {
+    "H_1_0.mat": "fdf4bec5b066f2edf7773b58c6eb4738306f40ff9918002123db0b79bee7edb4",
+    "H_2_0.mat": "4ed5ad60c70a4a2e28918a1f454ad9646b7248f9b461f000c2993c46c5bbe4f5",
+    "I_3_2.mat": "5eae38b2f7f53c5e3ffb9f1646d1ceecdd86a6a27beb174630022b2f6998b42f",
+    "O_8_2.mat": "2c84c4ca32b8315ab1dad6f20978265a9532848f3369f3b8525782933c02feaf",
+    "H_3_0.mat": "ed0f4ae24bb7f81411585f5ac5a1e3109fae5be7ad9e08d8ece5a23b7679bd2b",
+    "H_8_0.mat": "03578c65ec6401997e2e98c6952dd9931901196a50139fc96d430d3b726f15ee"
+  },
+  "scope": "Same four development recordings, sequence, warmup, 3 repetitions, flags and boundaries as v1; new lifecycle API only."
+}

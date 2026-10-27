@@ -1,0 +1,396 @@
+{
+  "id": "uored-scalar-host-benchmark-r3-v1",
+  "scope": "Development host implementation-only study; no consumed target rerun or quality inference.",
+  "freezeSha256": "3ba51ab58925954c1f9236752093e47e40770bc0aa2813153b8d6514187c9bc0",
+  "protocolSha256": "80148dce34dd1f60a981177099d898c5afc126c392e1dbdb941e71123eb57b36",
+  "host": {
+    "node": "v24.22.1",
+    "platform": "win32",
+    "arch": "x64",
+    "cpu": "Intel(R) Core(TM) Ultra 7 366H",
+    "logicalCpus": 16,
+    "flags": [
+      "--single-threaded",
+      "--v8-pool-size=1"
+    ]
+  },
+  "measurement": "Same v1 four files/alternating eight-child order: one untimed warmup, three timed repeats; SHA + MAT decode separately timed, prefix commission separately timed, stress/DSP/decisions reported; raw-to-all-decisions excludes MAT I/O/acquisition/UI. Node resourceUsage maxRSS KiB ×1024 is whole-child high-water including Node and MAT, NOT kernel or device RAM. Nearest-rank three-sample p95 is sample max.",
+  "sequence": [
+    {
+      "method": "generic",
+      "name": "H_1_0.mat"
+    },
+    {
+      "method": "scalar",
+      "name": "H_1_0.mat"
+    },
+    {
+      "method": "scalar",
+      "name": "H_2_0.mat"
+    },
+    {
+      "method": "generic",
+      "name": "H_2_0.mat"
+    },
+    {
+      "method": "generic",
+      "name": "I_3_2.mat"
+    },
+    {
+      "method": "scalar",
+      "name": "I_3_2.mat"
+    },
+    {
+      "method": "scalar",
+      "name": "O_8_2.mat"
+    },
+    {
+      "method": "generic",
+      "name": "O_8_2.mat"
+    }
+  ],
+  "rows": [
+    {
+      "name": "H_1_0.mat",
+      "method": "generic",
+      "ioMs": 158.6375,
+      "referenceIoMs": 0.00100000000009004,
+      "commissionMs": 794.7366000000001,
+      "referenceSha256": "fa0057e4f68c6dea350272e75cb85620218a2490f68470db2bba177504385275",
+      "runs": [
+        {
+          "rawToFeatureMs": 525.2618,
+          "stressMs": 12.292700000000195,
+          "dspAndFeatureMs": 453.6616999999999,
+          "decisionsMs": 6.183799999999792,
+          "rawToAllDecisionsMs": 531.4455999999998,
+          "outputs": 45,
+          "decisionDigest": "9e8635de3d180f52593b27d7a01a67cd160b3d2ff1a21e033737b5e6bd6eef33"
+        },
+        {
+          "rawToFeatureMs": 392.65200000000004,
+          "stressMs": 2.2989000000002306,
+          "dspAndFeatureMs": 382.85459999999966,
+          "decisionsMs": 4.059699999999793,
+          "rawToAllDecisionsMs": 396.71169999999984,
+          "outputs": 45,
+          "decisionDigest": "9e8635de3d180f52593b27d7a01a67cd160b3d2ff1a21e033737b5e6bd6eef33"
+        },
+        {
+          "rawToFeatureMs": 704.8301000000001,
+          "stressMs": 2.061000000000149,
+          "dspAndFeatureMs": 619.3448000000003,
+          "decisionsMs": 4.171100000000024,
+          "rawToAllDecisionsMs": 709.0012000000002,
+          "outputs": 45,
+          "decisionDigest": "9e8635de3d180f52593b27d7a01a67cd160b3d2ff1a21e033737b5e6bd6eef33"
+        }
+      ],
+      "maxRssBytes": 106725376
+    },
+    {
+      "name": "H_1_0.mat",
+      "method": "scalar",
+      "ioMs": 132.1773,
+      "referenceIoMs": 0.0009999999999763531,
+      "commissionMs": 404.6603,
+      "referenceSha256": "fa0057e4f68c6dea350272e75cb85620218a2490f68470db2bba177504385275",
+      "runs": [
+        {
+          "rawToFeatureMs": 142.51120000000014,
+          "stressMs": 10.467200000000048,
+          "dspAndFeatureMs": 132.01290000000017,
+          "decisionsMs": 7.161400000000185,
+          "rawToAllDecisionsMs": 149.67260000000033,
+          "outputs": 45,
+          "decisionDigest": "9e8635de3d180f52593b27d7a01a67cd160b3d2ff1a21e033737b5e6bd6eef33"
+        },
+        {
+          "rawToFeatureMs": 119.89769999999999,
+          "stressMs": 5.442299999999932,
+          "dspAndFeatureMs": 114.42919999999981,
+          "decisionsMs": 3.4816000000000713,
+          "rawToAllDecisionsMs": 123.37930000000006,
+          "outputs": 45,
+          "decisionDigest": "9e8635de3d180f52593b27d7a01a67cd160b3d2ff1a21e033737b5e6bd6eef33"
+        },
+        {
+          "rawToFeatureMs": 118.6378000000002,
+          "stressMs": 3.7080000000000837,
+          "dspAndFeatureMs": 114.90930000000003,
+          "decisionsMs": 3.263500000000022,
+          "rawToAllDecisionsMs": 121.90130000000022,
+          "outputs": 45,
+          "decisionDigest": "9e8635de3d180f52593b27d7a01a67cd160b3d2ff1a21e033737b5e6bd6eef33"
+        }
+      ],
+      "maxRssBytes": 118628352
+    },
+    {
+      "name": "H_2_0.mat",
+      "method": "scalar",
+      "ioMs": 146.46790000000004,
+      "referenceIoMs": 0.0009999999999763531,
+      "commissionMs": 415.9606,
+      "referenceSha256": "9d020f0d064cab350f01d43b5c60e5b359c27e99cebbc4e3fefecf92e0852813",
+      "runs": [
+        {
+          "rawToFeatureMs": 146.25980000000004,
+          "stressMs": 11.857700000000023,
+          "dspAndFeatureMs": 134.36429999999996,
+          "decisionsMs": 6.337700000000041,
+          "rawToAllDecisionsMs": 152.59750000000008,
+          "outputs": 45,
+          "decisionDigest": "d82667cd04a886a5e43bafd95a9b434aa5f00836d6c776d97000cc0531206f85"
+        },
+        {
+          "rawToFeatureMs": 119.83699999999999,
+          "stressMs": 2.015899999999874,
+          "dspAndFeatureMs": 117.79719999999998,
+          "decisionsMs": 3.3712000000000444,
+          "rawToAllDecisionsMs": 123.20820000000003,
+          "outputs": 45,
+          "decisionDigest": "d82667cd04a886a5e43bafd95a9b434aa5f00836d6c776d97000cc0531206f85"
+        },
+        {
+          "rawToFeatureMs": 126.1712,
+          "stressMs": 2.850199999999859,
+          "dspAndFeatureMs": 123.2983999999999,
+          "decisionsMs": 3.5556000000001404,
+          "rawToAllDecisionsMs": 129.72680000000014,
+          "outputs": 45,
+          "decisionDigest": "d82667cd04a886a5e43bafd95a9b434aa5f00836d6c776d97000cc0531206f85"
+        }
+      ],
+      "maxRssBytes": 118562816
+    },
+    {
+      "name": "H_2_0.mat",
+      "method": "generic",
+      "ioMs": 150.29180000000002,
+      "referenceIoMs": 0.0009999999999763531,
+      "commissionMs": 870.3774999999999,
+      "referenceSha256": "9d020f0d064cab350f01d43b5c60e5b359c27e99cebbc4e3fefecf92e0852813",
+      "runs": [
+        {
+          "rawToFeatureMs": 562.4820000000002,
+          "stressMs": 10.520099999999957,
+          "dspAndFeatureMs": 486.84979999999973,
+          "decisionsMs": 9.5324999999998,
+          "rawToAllDecisionsMs": 572.0145,
+          "outputs": 45,
+          "decisionDigest": "d82667cd04a886a5e43bafd95a9b434aa5f00836d6c776d97000cc0531206f85"
+        },
+        {
+          "rawToFeatureMs": 460.4566999999997,
+          "stressMs": 2.475199999999859,
+          "dspAndFeatureMs": 444.72699999999986,
+          "decisionsMs": 3.5653000000002066,
+          "rawToAllDecisionsMs": 464.02199999999993,
+          "outputs": 45,
+          "decisionDigest": "d82667cd04a886a5e43bafd95a9b434aa5f00836d6c776d97000cc0531206f85"
+        },
+        {
+          "rawToFeatureMs": 756.1841000000004,
+          "stressMs": 5.992900000000191,
+          "dspAndFeatureMs": 601.6692000000003,
+          "decisionsMs": 7.067700000000059,
+          "rawToAllDecisionsMs": 763.2518000000005,
+          "outputs": 45,
+          "decisionDigest": "d82667cd04a886a5e43bafd95a9b434aa5f00836d6c776d97000cc0531206f85"
+        }
+      ],
+      "maxRssBytes": 106266624
+    },
+    {
+      "name": "I_3_2.mat",
+      "method": "generic",
+      "ioMs": 149.65439999999995,
+      "referenceIoMs": 126.26120000000003,
+      "commissionMs": 847.1069999999999,
+      "referenceSha256": "ca496d3c2d437d986cc9d90112726fc23c3c32a604db9bd4376608a32b7a412d",
+      "runs": [
+        {
+          "rawToFeatureMs": 543.4259000000002,
+          "stressMs": 9.30540000000019,
+          "dspAndFeatureMs": 473.5578000000005,
+          "decisionsMs": 11.253999999999905,
+          "rawToAllDecisionsMs": 554.6799000000001,
+          "outputs": 77,
+          "decisionDigest": "badcd5e529eb97724a149b85e6e5406023bc8fa8ff703b99a06877fde9a74937"
+        },
+        {
+          "rawToFeatureMs": 434.99119999999994,
+          "stressMs": 2.0182999999997264,
+          "dspAndFeatureMs": 425.22890000000007,
+          "decisionsMs": 28.729699999999866,
+          "rawToAllDecisionsMs": 463.7208999999998,
+          "outputs": 77,
+          "decisionDigest": "badcd5e529eb97724a149b85e6e5406023bc8fa8ff703b99a06877fde9a74937"
+        },
+        {
+          "rawToFeatureMs": 1366.953,
+          "stressMs": 3.469699999999648,
+          "dspAndFeatureMs": 1093.4325000000008,
+          "decisionsMs": 8.755799999999908,
+          "rawToAllDecisionsMs": 1375.7087999999999,
+          "outputs": 77,
+          "decisionDigest": "badcd5e529eb97724a149b85e6e5406023bc8fa8ff703b99a06877fde9a74937"
+        }
+      ],
+      "maxRssBytes": 132558848
+    },
+    {
+      "name": "I_3_2.mat",
+      "method": "scalar",
+      "ioMs": 171.24069999999995,
+      "referenceIoMs": 164.39240000000007,
+      "commissionMs": 506.89639999999986,
+      "referenceSha256": "ca496d3c2d437d986cc9d90112726fc23c3c32a604db9bd4376608a32b7a412d",
+      "runs": [
+        {
+          "rawToFeatureMs": 134.8206,
+          "stressMs": 10.953800000000001,
+          "dspAndFeatureMs": 123.70310000000018,
+          "decisionsMs": 7.373499999999922,
+          "rawToAllDecisionsMs": 142.19409999999993,
+          "outputs": 77,
+          "decisionDigest": "badcd5e529eb97724a149b85e6e5406023bc8fa8ff703b99a06877fde9a74937"
+        },
+        {
+          "rawToFeatureMs": 129.0304000000001,
+          "stressMs": 2.147799999999961,
+          "dspAndFeatureMs": 126.85670000000005,
+          "decisionsMs": 7.701099999999997,
+          "rawToAllDecisionsMs": 136.7315000000001,
+          "outputs": 77,
+          "decisionDigest": "badcd5e529eb97724a149b85e6e5406023bc8fa8ff703b99a06877fde9a74937"
+        },
+        {
+          "rawToFeatureMs": 123.75450000000001,
+          "stressMs": 2.2486999999998716,
+          "dspAndFeatureMs": 121.48039999999992,
+          "decisionsMs": 9.302000000000135,
+          "rawToAllDecisionsMs": 133.05650000000014,
+          "outputs": 77,
+          "decisionDigest": "badcd5e529eb97724a149b85e6e5406023bc8fa8ff703b99a06877fde9a74937"
+        }
+      ],
+      "maxRssBytes": 132513792
+    },
+    {
+      "name": "O_8_2.mat",
+      "method": "scalar",
+      "ioMs": 147.20980000000003,
+      "referenceIoMs": 130.65929999999992,
+      "commissionMs": 512.7044,
+      "referenceSha256": "e0495a6973770d6a7462b42486a583dc0a7bddbe67d9388e05a0b5b414f9b17d",
+      "runs": [
+        {
+          "rawToFeatureMs": 146.00109999999995,
+          "stressMs": 11.001300000000128,
+          "dspAndFeatureMs": 134.96710000000007,
+          "decisionsMs": 7.156999999999925,
+          "rawToAllDecisionsMs": 153.15809999999988,
+          "outputs": 77,
+          "decisionDigest": "3f7dc9cca27acdc2348cc9fa8c053fb22d09c5c3dc10f9078f605699edc62e60"
+        },
+        {
+          "rawToFeatureMs": 113.04959999999983,
+          "stressMs": 2.1385999999999967,
+          "dspAndFeatureMs": 110.88619999999992,
+          "decisionsMs": 6.356700000000046,
+          "rawToAllDecisionsMs": 119.40629999999987,
+          "outputs": 77,
+          "decisionDigest": "3f7dc9cca27acdc2348cc9fa8c053fb22d09c5c3dc10f9078f605699edc62e60"
+        },
+        {
+          "rawToFeatureMs": 119.74029999999993,
+          "stressMs": 2.1853000000000975,
+          "dspAndFeatureMs": 117.5295000000001,
+          "decisionsMs": 6.215299999999843,
+          "rawToAllDecisionsMs": 125.95559999999978,
+          "outputs": 77,
+          "decisionDigest": "3f7dc9cca27acdc2348cc9fa8c053fb22d09c5c3dc10f9078f605699edc62e60"
+        }
+      ],
+      "maxRssBytes": 130605056
+    },
+    {
+      "name": "O_8_2.mat",
+      "method": "generic",
+      "ioMs": 144.20239999999995,
+      "referenceIoMs": 145.3107,
+      "commissionMs": 887.9218000000001,
+      "referenceSha256": "e0495a6973770d6a7462b42486a583dc0a7bddbe67d9388e05a0b5b414f9b17d",
+      "runs": [
+        {
+          "rawToFeatureMs": 558.1700000000001,
+          "stressMs": 9.93040000000019,
+          "dspAndFeatureMs": 483.9295999999995,
+          "decisionsMs": 7.867200000000139,
+          "rawToAllDecisionsMs": 566.0372000000002,
+          "outputs": 77,
+          "decisionDigest": "3f7dc9cca27acdc2348cc9fa8c053fb22d09c5c3dc10f9078f605699edc62e60"
+        },
+        {
+          "rawToFeatureMs": 545.4780000000001,
+          "stressMs": 2.0648000000001048,
+          "dspAndFeatureMs": 535.8666000000003,
+          "decisionsMs": 15.025500000000193,
+          "rawToAllDecisionsMs": 560.5035000000003,
+          "outputs": 77,
+          "decisionDigest": "3f7dc9cca27acdc2348cc9fa8c053fb22d09c5c3dc10f9078f605699edc62e60"
+        },
+        {
+          "rawToFeatureMs": 750.9033,
+          "stressMs": 7.842999999999847,
+          "dspAndFeatureMs": 629.0248000000001,
+          "decisionsMs": 7.74980000000005,
+          "rawToAllDecisionsMs": 758.6531,
+          "outputs": 77,
+          "decisionDigest": "3f7dc9cca27acdc2348cc9fa8c053fb22d09c5c3dc10f9078f605699edc62e60"
+        }
+      ],
+      "maxRssBytes": 130691072
+    }
+  ],
+  "summaries": [
+    {
+      "name": "H_1_0.mat",
+      "genericMedianMs": 531.4455999999998,
+      "scalarMedianMs": 123.37930000000006,
+      "genericP95Ms": 709.0012000000002,
+      "scalarP95Ms": 149.67260000000033,
+      "genericPeakRssBytes": 106725376,
+      "scalarPeakRssBytes": 118628352
+    },
+    {
+      "name": "H_2_0.mat",
+      "genericMedianMs": 572.0145,
+      "scalarMedianMs": 129.72680000000014,
+      "genericP95Ms": 763.2518000000005,
+      "scalarP95Ms": 152.59750000000008,
+      "genericPeakRssBytes": 106266624,
+      "scalarPeakRssBytes": 118562816
+    },
+    {
+      "name": "I_3_2.mat",
+      "genericMedianMs": 554.6799000000001,
+      "scalarMedianMs": 136.7315000000001,
+      "genericP95Ms": 1375.7087999999999,
+      "scalarP95Ms": 142.19409999999993,
+      "genericPeakRssBytes": 132558848,
+      "scalarPeakRssBytes": 132513792
+    },
+    {
+      "name": "O_8_2.mat",
+      "genericMedianMs": 566.0372000000002,
+      "scalarMedianMs": 125.95559999999978,
+      "genericP95Ms": 758.6531,
+      "scalarP95Ms": 153.15809999999988,
+      "genericPeakRssBytes": 130691072,
+      "scalarPeakRssBytes": 130605056
+    }
+  ]
+}

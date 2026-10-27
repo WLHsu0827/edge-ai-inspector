@@ -1,0 +1,14 @@
+{
+  "id": "uored-scalar-host-benchmark-r3-v1",
+  "v1ProtocolSha256": "af10f114e4d5dd401ea201fa369ea5cb901fc9ff49f207255c2aca0707975e65",
+  "paritySha256": "b822b475d241983965d81e0e7eb78d602582a7b462b7fe172945abbe566b8a89",
+  "planSha256": "b00cb1a0858270aeac1210b19c4cb56346e5eb8668157700a195d5cf9d31f829",
+  "files": ["H_1_0.mat", "H_2_0.mat", "I_3_2.mat", "O_8_2.mat"],
+  "order": ["generic", "scalar", "scalar", "generic", "generic", "scalar", "scalar", "generic"],
+  "warmup": 1,
+  "repetitions": 3,
+  "chunkSize": 8191,
+  "condition": "original only; repeat the frozen v1 host protocol with r3 fail-closed stream lifecycle, no model selection",
+  "timing": "Separate sequential Node child per record/method, original flags, same matched raw-to-feature and decision boundaries, MATLAB I/O and prefix commission separately reported.",
+  "memory": "Whole child process.resourceUsage().maxRSS (KiB ×1024) after work, including Node and decoded MAT; not isolated DSP state or UGen RAM."
+}

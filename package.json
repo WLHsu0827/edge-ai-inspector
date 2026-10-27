@@ -1,0 +1,11 @@
+{
+  "name": "edge-ai-inspector-scalar-private-r3",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24.0.0" },
+  "scripts": {
+    "demo": "node --single-threaded --v8-pool-size=1 src/uored-scalar-demo-r3.js synthetic",
+    "test": "node --single-threaded --v8-pool-size=1 --test test/uored-scalar-r3.test.js"
+  }
+}
